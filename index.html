@@ -429,6 +429,7 @@
         <a href='#networking'>Networking Map</a>
         <a href='#permissions'>User & Permissions</a>
         <a href='#docker'>Docker Reference</a>
+        <a href='#docker-compose'>Docker Compose</a>
     </nav>
 
     <div id='track' class='section'>
@@ -1597,37 +1598,160 @@
 <span style='color: #e83e8c;'>docker rm my-container</span>      # Step 2: Delete the container record container box shell footprint layout
 <span style='color: #e83e8c;'>docker rmi rahulambadi/rahulrepo:v1</span> # Step 3: Now the underlying image layer can be purged from local storage safely.</pre>
         </div>
-
-<div id='docker-advanced' class='section searchable-section'>
-    <h2>🐳 Advanced Docker Container Patterns</h2>
-    <p style='color: #94a3b8; margin-bottom: 15px;'>Syntax-focused execution patterns for networking and persistent data management.</p>
-    
-    <div class='search-container'>
-        <input type='text' class='search-bar' placeholder='🔍 Search network or volume commands...' onkeyup='filterTable(this, "docker-advanced-table")'>
     </div>
 
-    <table id='docker-advanced-table'>
-        <thead>
-            <tr>
-                <th>Command Syntax Format</th>
-                <th>Actual Execution Command</th>
-                <th>Utility</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>docker run -d --name &lt;name&gt; --network &lt;net&gt; -p &lt;h&gt;:&lt;c&gt; &lt;img&gt;</code></td>
-                <td><code>docker run -d --name rahul-ntwk-contr --network my-app-net -p 90:80 nginx:alpine</code></td>
-                <td><strong>Network Mapping:</strong> Connects a container to a custom network with specific port bindings.</td>
-            </tr>
-            <tr>
-                <td><code>docker run -d -p &lt;h&gt;:&lt;c&gt; -v &lt;vol&gt;:&lt;path&gt; --name &lt;name&gt; &lt;img&gt;</code></td>
-                <td><code>docker run -d -p 88:80 -v rahul-vol:/app --name rahul1 nginx:alpine</code></td>
-                <td><strong>Volume Mapping:</strong> Mounts a persistent volume to a container path with port bindings.</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div id='docker-advanced' class='section searchable-section'>
+        <h2>🐳 Advanced Docker Container Patterns</h2>
+        <p style='color: #94a3b8; margin-bottom: 15px;'>Syntax-focused execution patterns for networking and persistent data management.</p>
+        
+        <div class='search-container'>
+            <input type='text' class='search-bar' placeholder='🔍 Search network or volume commands...' onkeyup='filterTable(this, "docker-advanced-table")'>
+        </div>
+
+        <table id='docker-advanced-table'>
+            <thead>
+                <tr>
+                    <th>Command Syntax Format</th>
+                    <th>Actual Execution Command</th>
+                    <th>Utility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>docker run -d --name &lt;name&gt; --network &lt;net&gt; -p &lt;h&gt;:&lt;c&gt; &lt;img&gt;</code></td>
+                    <td><code>docker run -d --name rahul-ntwk-contr --network my-app-net -p 90:80 nginx:alpine</code></td>
+                    <td><strong>Network Mapping:</strong> Connects a container to a custom network with specific port bindings.</td>
+                </tr>
+                <tr>
+                    <td><code>docker run -d -p &lt;h&gt;:&lt;c&gt; -v &lt;vol&gt;:&lt;path&gt; --name &lt;name&gt; &lt;img&gt;</code></td>
+                    <td><code>docker run -d -p 88:80 -v rahul-vol:/app --name rahul1 nginx:alpine</code></td>
+                    <td><strong>Volume Mapping:</strong> Mounts a persistent volume to a container path with port bindings.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ==================== NEW DOCKER COMPOSE SECTION ==================== -->
+    <div id='docker-compose' class='section searchable-section'>
+        <h2>🐙 Multi-Container Orchestration with Docker Compose</h2>
+        <p style='color: #94a3b8; margin-bottom: 15px;'>Docker Compose abstracts individual container CLI arguments into a single declarative text file configuration blueprint.</p>
+        
+        <div class='card-grid'>
+            <div class='card'>
+                <h3>⚙️ Why use Compose?</h3>
+                <p>Instead of executing 5 complex terminal statements with individual ports, networks, and environment tags, Docker Compose aggregates your environment topology into a single unified workspace blueprint template.</p>
+            </div>
+            <div class='card'>
+                <h3>🛠️ Key Configuration Structural Pillars</h3>
+                <ul style='margin-top: 8px;'>
+                    <li><strong>services:</strong> Definition block for your application containers (e.g., frontend, database web nodes).</li>
+                    <li><strong>volumes:</strong> Shared block specifying named volumes to declare stateful, durable file lifecycles.</li>
+                    <li><strong>networks:</strong> Shared software isolation lanes connecting related application layers.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="sub-block-title">📋 Docker Compose Operations Cheat Sheet</h3>
+        <div class='search-container'>
+            <input type='text' class='search-bar' placeholder='🔍 Search compose commands (up, down, logs)...' onkeyup='filterTable(this, "docker-compose-table")'>
+        </div>
+        <table id='docker-compose-table'>
+            <thead>
+                <tr>
+                    <th style="width: 45%;">Orchestration Command</th>
+                    <th>Target Goal</th>
+                    <th>What it Actually Does (Simple English)</th>
+                    <th>Risk Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>docker compose up -d</code></td>
+                    <td>Ignition / Spin-up</td>
+                    <td>Reads the local file directory configurations, sets up networks/volumes, and runs all containers in the background.</td>
+                    <td><span class='badge badge-green'>Safe</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose down</code></td>
+                    <td>Tear-down</td>
+                    <td>Gracefully stops execution nodes, tears down network isolation structures, and clears memory spaces cleanly.</td>
+                    <td><span class='badge badge-yellow'>Medium</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose down -v</code></td>
+                    <td>Hard Purge</td>
+                    <td>Tears down operational infrastructure nodes and permanently deletes all named storage volumes linked to the stack.</td>
+                    <td><span class='badge badge-red'>Risky</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose ps</code></td>
+                    <td>Status Audit</td>
+                    <td>Prints out a comprehensive operational health summary of all services managed by the stack directory wrapper.</td>
+                    <td><span class='badge badge-green'>Safe</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose logs -f</code></td>
+                    <td>Unified Stream</td>
+                    <td>Aggregates stdout output channels across all executing cluster microservices into a single trailing console monitor screen.</td>
+                    <td><span class='badge badge-green'>Safe</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose build</code></td>
+                    <td>Re-compile Layers</td>
+                    <td>Forces Docker to scan local custom recipe paths and re-compile base images before starting runtime steps.</td>
+                    <td><span class='badge badge-green'>Safe</span></td>
+                </tr>
+                <tr>
+                    <td><code>docker compose restart</code></td>
+                    <td>Cycle Execution</td>
+                    <td>Quickly cycles execution runtimes across all stack systems without tearing down underlying network topologies.</td>
+                    <td><span class='badge badge-green'>Safe</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class='cmd-block'>
+            <h4>📐 Anatomy of a Production-Grade docker-compose.yml File Blueprint</h4>
+            <div style='margin-bottom: 12px; font-size: 0.9em; color: #94a3b8; line-height: 1.6;'>
+                Save this exact configuration map as <code>docker-compose.yml</code> inside your code tracking workspace:
+            </div>
+            <pre><span style='color: #64748b;'>version: "3.8"</span> # Defines configuration specification syntax engine level
+
+<span style='color: #38bdf8;'>services:</span>
+  <span style='color: #34d399;'>web-frontend:</span>
+    <span style='color: #e2e8f0;'>image: nginx:alpine</span> # Uses highly optimized Alpine infrastructure snapshot layer
+    <span style='color: #e2e8f0;'>ports:</span>
+      <span style='color: #e83e8c;'>- "8080:80"</span> # Binds Mac desktop host port 8080 straight to internal routing container port 80
+    <span style='color: #e2e8f0;'>networks:</span>
+      <span style='color: #e83e8c;'>- app-tier-network</span>
+    <span style='color: #e2e8f0;'>depends_on:</span>
+      <span style='color: #e83e8c;'>- backend-api</span> # Ensures backend-api initializes execution loops before frontend fires up
+
+  <span style='color: #34d399;'>backend-api:</span>
+    <span style='color: #e2e8f0;'>build:</span>
+      <span style='color: #e2e8f0;'>context: .</span> # Directs build engine to parse local workspace folders for recipe scripts
+      <span style='color: #e2e8f0;'>dockerfile: Dockerfile.python</span>
+    <span style='color: #e2e8f0;'>environment:</span>
+      <span style='color: #e83e8c;'>DB_HOST: database-node</span> # Injects variable tags dynamically into application runtime environments
+    <span style='color: #e2e8f0;'>networks:</span>
+      <span style='color: #e83e8c;'>- app-tier-network</span>
+
+  <span style='color: #34d399;'>database-node:</span>
+    <span style='color: #e2e8f0;'>image: postgres:15-alpine</span>
+    <span style='color: #e2e8f0;'>volumes:</span>
+      <span style='color: #e83e8c;'>- database-storage-vault:/var/lib/postgresql/data</span> # Mounts persistent engine space to survive lifecycles
+    <span style='color: #e2e8f0;'>networks:</span>
+      <span style='color: #e83e8c;'>- app-tier-network</span>
+
+<span style='color: #38bdf8;'>volumes:</span>
+  <span style='color: #34d399;'>database-storage-vault:</span> # Allocates dedicated space mapping locations to safe storage paths
+
+<span style='color: #38bdf8;'>networks:</span>
+  <span style='color: #34d399;'>app-tier-network:</span>
+    <span style='color: #e2e8f0;'>driver: bridge</span> # Instantiates localized software switching matrix between layer nodes</pre>
+        </div>
+    </div>
+
     <footer>
         <p>🚀 Rahul's QA to DevOps Journey Roadmap · Keep it simple, keep building.</p>
     </footer>
