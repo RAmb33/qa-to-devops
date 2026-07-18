@@ -114,7 +114,7 @@
         .progress-bar-fill {
             background: linear-gradient(90deg, #38bdf8, #2563eb);
             height: 100%;
-            width: 30%; /* Updated to match 30% from content */
+            width: 55%; /* Updated to account for newly advanced cloud stages */
             border-radius: 4px;
         }
         .roadmap-timeline {
@@ -131,7 +131,7 @@
             top: 5px;
             bottom: 5px;
             width: 3px;
-            background: linear-gradient(to bottom, #2563eb 25%, #334155 25%);
+            background: linear-gradient(to bottom, #2563eb 50%, #334155 50%);
         }
         .roadmap-step {
             position: relative;
@@ -166,6 +166,13 @@
             transform: translateX(5px);
             border-color: #60a5fa;
         }
+        .step-completed {
+            border-color: #10b981;
+            background: #111827;
+        }
+        .step-completed::before {
+            background: #10b981;
+        }
         .step-locked {
             opacity: 0.5;
             background: #0f172a;
@@ -198,6 +205,11 @@
             background: rgba(56, 189, 248, 0.15);
             color: #38bdf8;
             border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .badge-done {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
         .badge-todo {
             background: #1e293b;
@@ -304,6 +316,11 @@
         .badge-blue {
             background: #1e3a5f;
             color: #93c5fd;
+        }
+        .badge-purple {
+            background: #3b0764;
+            color: #d8b4fe;
+            border: 1px solid rgba(216, 180, 254, 0.2);
         }
         .badge-orange {
             background: #431407;
@@ -428,6 +445,8 @@
         <a href='#subnets-core'>Subnetting Basics</a>
         <a href='#networking'>Networking Map</a>
         <a href='#permissions'>User & Permissions</a>
+        <a href='#cloud-terms'>Cloud Vocabulary</a>
+        <a href='#azure-services'>Azure Services Map</a>
         <a href='#docker'>Docker Reference</a>
         <a href='#docker-compose'>Docker Compose</a>
     </nav>
@@ -439,19 +458,19 @@
             <div class='overall-progress'>
                 <div class='progress-text'>
                     <span>Overall Roadmap Completion</span>
-                    <span style='color: #38bdf8;'>30% Complete</span>
+                    <span style='color: #38bdf8;'>55% Complete</span>
                 </div>
                 <div class='progress-bar-bg'>
-                    <div class='progress-bar-fill' style='width: 30%;'></div>
+                    <div class='progress-bar-fill' style='width: 55%;'></div>
                 </div>
             </div>
 
             <div class='roadmap-timeline'>
 
-                <div class='roadmap-step step-current'>
+                <div class='roadmap-step step-completed'>
                     <div class='step-header'>
                         <span class='step-title'>Stage 1: The Basics & Containers</span>
-                        <span class='progress-badge badge-doing'>Learning Now ⚡</span>
+                        <span class='progress-badge badge-done'>Completed ✓</span>
                     </div>
                     <p class='step-desc'>Learning how computers work, how operating systems talk to hardware, networking, and foundational containerization layouts.</p>
                     <div class='concept-tags'>
@@ -465,21 +484,26 @@
                         <span class='status-pill done'>✓ Linux Flavours</span>
                         <span class='status-pill done'>✓ Folders & Files</span>
                         <span class='status-pill done'>✓ Processes & Signals</span>
-                        <span class='status-pill pending'>⏳ Docker Core Architecture (In Progress)</span>
+                        <span class='status-pill done'>✓ Docker Core Architecture</span>
                     </div>
                 </div>
 
-                <div class='roadmap-step step-locked'>
+                <div class='roadmap-step step-current'>
                     <div class='step-header'>
-                        <span class='step-title'>Stage 2: Going to the Cloud</span>
-                        <span class='progress-badge badge-todo'>Next Up 🔒</span>
+                        <span class='step-title'>Stage 2: Going to the Cloud (Azure & AWS Maps)</span>
+                        <span class='progress-badge badge-doing'>Learning Now ⚡</span>
                     </div>
-                    <p class='step-desc'>Moving your computer skills to cloud systems like AWS or Azure. Learning about remote servers, cloud security, and databases.</p>
+                    <p class='step-desc'>Moving your computer skills to cloud systems like AWS or Azure. Learning about remote infrastructure, cloud security tokens, and managed database clusters.</p>
                     <div class='concept-tags'>
-                        <span class='concept-tag'>AWS/Azure Services</span>
-                        <span class='concept-tag'>IAM Accounts</span>
-                        <span class='concept-tag'>Cloud Security</span>
-                        <span class='concept-tag'>Databases</span>
+                        <span class='concept-tag'>Global Infrastructure</span>
+                        <span class='concept-tag'>Entra ID / IAM</span>
+                        <span class='concept-tag'>Managed PaaS & IaaS</span>
+                        <span class='concept-tag'>Cross-Cloud Translation</span>
+                    </div>
+                    <div class='status-pill-container'>
+                        <span class='status-pill done'>✓ Cloud Terminology</span>
+                        <span class='status-pill done'>✓ AWS to Azure Mapping</span>
+                        <span class='status-pill pending'>⏳ Deploying API App Service (Next Session)</span>
                     </div>
                 </div>
 
@@ -533,7 +557,7 @@
                 <p style='color: #fff;'>CI/CD Automation</p>
             </a>
             
-            <a href='#track' class='card pillar-card' style='text-decoration: none; transition: transform 0.2s, border-color 0.2s; cursor: pointer;' onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#38bdf8'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#334155'">
+            <a href='#cloud-terms' class='card pillar-card' style='text-decoration: none; transition: transform 0.2s, border-color 0.2s; cursor: pointer;' onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#38bdf8'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#334155'">
                 <p style='font-size: 1.5em; margin-bottom: 5px;'>☁️</p>
                 <p style='color: #fff;'>Cloud Platforms</p>
             </a>
@@ -1067,7 +1091,7 @@
                 </div>
             </div>
             <p style="margin-top: 20px; font-size: 0.95em; color: #94a3b8; line-height: 1.5; font-style: italic;">
-                🛡️ <strong>The Security Win:</strong> If a vulnerability breaks an public internet proxy node in the Lobby, an attacker remains trapped inside that isolated subnet room. They have no route to navigate into the Vault because firewalls drop cross-subnet requests automatically.
+                🛡️ <strong>The Security Win:</strong> If a vulnerability breaks a public internet proxy node in the Lobby, an attacker remains trapped inside that isolated subnet room. They have no route to navigate into the Vault because firewalls drop cross-subnet requests automatically.
             </p>
         </div>
 
@@ -1259,6 +1283,205 @@
                     <td>File Ownership</td>
                     <td>Swaps the specific master owner or group wrapper linked to a physical file entity.</td>
                     <td><span class='badge badge-yellow'>Medium</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ==================== NEW CLOUD TERMINOLOGY SECTION ==================== -->
+    <div id='cloud-terms' class='section searchable-section'>
+        <h2>🌍 Key Cloud Terminology & Fundamentals</h2>
+        <p style='color: #94a3b8; margin-bottom: 15px;'>The core vocabulary that appears in every modern architecture conversation, cloud interview, and engineering exam.</p>
+        
+        <div class='search-container'>
+            <input type='text' class='search-bar' placeholder='🔍 Search cloud concepts or terms (e.g. Region, SLA, Elasticity)...' onkeyup='filterTable(this, "cloud-terms-table")'>
+        </div>
+
+        <table id='cloud-terms-table'>
+            <thead>
+                <tr>
+                    <th>Cloud Concept</th>
+                    <th>Category Tag</th>
+                    <th>Core Engineering Context (What you must know)</th>
+                    <th>Real-World Analogy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>🌍 Region</strong></td>
+                    <td><span class='badge badge-blue'>Infrastructure</span></td>
+                    <td>Specific geographic area holding isolated data centers (e.g., UK South). Deploy resources closest to users for lowest latency. Azure has 60+ globally.</td>
+                    <td>🏙️ A city. Your restaurant opens in London—that's your region.</td>
+                </tr>
+                <tr>
+                    <td><strong>🏢 Availability Zone (AZ)</strong></td>
+                    <td><span class='badge badge-green'>High Availability</span></td>
+                    <td>3+ physically separated buildings within a region, each with independent power, cooling, and network lines. Deploy cross-AZ to survive fires/floods.</td>
+                    <td>🏢 Your London restaurant has 3 branches in separate postcodes. If one floods, others stay open.</td>
+                </tr>
+                <tr>
+                    <td><strong>💳 Subscription</strong></td>
+                    <td><span class='badge badge-yellow'>Billing</span></td>
+                    <td>The core billing container. Resources accumulate costs here. Companies split them into Dev, Staging, and Prod to enforce distinct spending bounds.</td>
+                    <td>💳 A credit card account. Everything charged to it appears on one bill.</td>
+                </tr>
+                <tr>
+                    <td><strong>📁 Resource Group</strong></td>
+                    <td><span class='badge badge-blue'>Organisation</span></td>
+                    <td>A logical container holding related assets (Web app, DB, Storage). Delete the group, and everything inside is deleted. Eliminates orphaned costs.</td>
+                    <td>📁 A project folder on your desktop. Delete the folder, delete all files inside.</td>
+                </tr>
+                <tr>
+                    <td><strong>🌐 Virtual Network (VNet)</strong></td>
+                    <td><span class='badge badge-blue'>Networking</span></td>
+                    <td>Your private, isolated network section inside the cloud. Define custom IP address ranges, subnets, and configure Network Security Groups (NSGs).</td>
+                    <td>🏢 Your private office floor—only staff get access. Visitors must be signed in.</td>
+                </tr>
+                <tr>
+                    <td><strong>🔐 Entra ID (AAD)</strong></td>
+                    <td><span class='badge badge-purple'>Identity</span></td>
+                    <td>Azure's Identity and Access Management platform (formerly Active Directory). Authenticates every user, portal login, and microservice role token.</td>
+                    <td>🏢 An HR system + building access card security mechanism combined into one.</td>
+                </tr>
+                <tr>
+                    <td><strong>🏷️ RBAC</strong></td>
+                    <td><span class='badge badge-purple'>Security</span></td>
+                    <td>Role-Based Access Control. Assign specific fine-grained roles: Owner (full control), Contributor (modify/create), Reader (read-only views).</td>
+                    <td>🏥 Surgeons access operating theatres, nurses access wards, receptionists access front desk.</td>
+                </tr>
+                <tr>
+                    <td><strong>🔑 Managed Identity</strong></td>
+                    <td><span class='badge badge-purple'>Security</span></td>
+                    <td>Enables internal services to authenticate without passwords or strings. Azure handles auth token handshakes automatically. No secrets in code.</td>
+                    <td>🏢 An employee badge—staff get through security doors without remembering passwords.</td>
+                </tr>
+                <tr>
+                    <td><strong>🔒 Azure Key Vault</strong></td>
+                    <td><span class='badge badge-purple'>Security</span></td>
+                    <td>Secure encrypted repository for application secrets, passwords, certificates, and keys. Enforces Rule #1: No passwords in source code.</td>
+                    <td>🏦 A secure bank safety deposit box for your application's sensitive credentials.</td>
+                </tr>
+                <tr>
+                    <td><strong>📊 Elasticity vs Scalability</strong></td>
+                    <td><span class='badge badge-orange'>Core Concept</span></td>
+                    <td><strong>Scalability:</strong> Handling more load (Scale Out = more VMs; Scale Up = bigger VMs). <strong>Elasticity:</strong> Auto-scaling and auto-releasing resources when idle.</td>
+                    <td>🎈 A rubber band. Stretches when pulled, returns when released. You only pay for what you stretch.</td>
+                </tr>
+                <tr>
+                    <td><strong>📏 SLA & Uptime</strong></td>
+                    <td><span class='badge badge-yellow'>Operations</span></td>
+                    <td>Service Level Agreement uptime guarantee. Single VM = 99.9% (~8.7h downtime/yr). Multi-AZ deployment = 99.99% (~52 min downtime allowed per year).</td>
+                    <td>✈️ An airline's on-time flight guarantee. 99.9% means 1 in 1,000 delayed; 99.99% means 1 in 10,000.</td>
+                </tr>
+                <tr>
+                    <td><strong>🏗️ Infrastructure as Code</strong></td>
+                    <td><span class='badge badge-green'>DevOps</span></td>
+                    <td>Writing code to describe target infrastructure instead of manual clicks. Native options include Bicep/ARM; cloud-agnostic option is Terraform. Repeatable and auditable.</td>
+                    <td>📐 Architectural blueprints vs building by hand. Blueprints let anyone reproduce identical rooms.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ==================== NEW AZURE CORE SERVICES SECTION ==================== -->
+    <div id='azure-services' class='section searchable-section'>
+        <h2>☁️ Core Azure Services & Cross-Cloud Translation Map</h2>
+        <p style='color: #94a3b8; margin-bottom: 15px;'>Direct conceptual alignment mapping day-to-day Azure services to the AWS environments you already know.</p>
+
+        <div class='card-grid' style='grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));'>
+            <div class='card' style='border-color: #2563eb;'>
+                <h3 style='color: #38bdf8;'>☁️ The Big Three Cloud Market Share</h3>
+                <ul style='list-style: none; padding-left: 0;'>
+                    <li style='margin-bottom: 10px;'>🥇 <strong>Amazon AWS (32%):</strong> Broadest catalog. Your retail app currently runs here on ECS.</li>
+                    <li style='margin-bottom: 10px;'>🥈 <strong>Microsoft Azure (23%):</strong> Enterprise leader, dominant in financial services and hybrid infrastructure ecosystems.</li>
+                    <li style='margin-bottom: 10px;'>🥉 <strong>Google Cloud (12%):</strong> Highly optimized for data analytics, machine learning, and BigQuery stacks.</li>
+                </ul>
+            </div>
+            <div class='card' style='border-color: #10b981;'>
+                <h3 style='color: #34d399;'>🗺️ UK South Region AZ Topology</h3>
+                <p style='font-size: 0.85em; margin-bottom: 10px;'>Three isolated facilities arranged to support automated application replicas:</p>
+                <div style='font-family: monospace; font-size: 0.9em; background: #0f172a; padding: 10px; border-radius: 6px;'>
+                    ⚡ AZ 1: Slough Data Centre (Primary Host)<br>
+                    🔄 AZ 2: Reading Data Centre (Auto-Failover Replica)<br>
+                    🔄 AZ 3: London Data Centre (Second Sync Replica)
+                </div>
+            </div>
+        </div>
+
+        <h3 style='color:#fff; margin-top:25px; margin-bottom: 5px;'>⚓ AWS → Azure Cheat Sheet Mapping</h3>
+        <div class='search-container'>
+            <input type='text' class='search-bar' placeholder='🔍 Search cross-cloud mappings (e.g. S3, EC2, Lambda, EKS)...' onkeyup='filterTable(this, "azure-services-table")'>
+        </div>
+
+        <table id='azure-services-table'>
+            <thead>
+                <tr>
+                    <th>Service Category</th>
+                    <th>AWS Tool (You Know)</th>
+                    <th>Azure Equivalent (Learning)</th>
+                    <th>DevOps Real-World Use Case Blueprint</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Virtual Servers</strong></td>
+                    <td><code>EC2</code></td>
+                    <td><code>Azure Virtual Machines</code></td>
+                    <td>On-demand VMs. Use B-series for dev tests, D-series for production nodes. Legacy app migration host.</td>
+                </tr>
+                <tr>
+                    <td><strong>Serverless Containers</strong></td>
+                    <td><code>ECS / Fargate</code></td>
+                    <td><code>Azure Container Apps</code></td>
+                    <td>Run microservice app containers directly without configuring or managing low-level server clusters.</td>
+                </tr>
+                <tr>
+                    <td><strong>Managed Kubernetes</strong></td>
+                    <td><code>EKS</code></td>
+                    <td><code>Azure Kubernetes Service (AKS)</code></td>
+                    <td>Managed control plane. Reuses identical Kubernetes manifests; use <code>kubectl apply -f deployment.yaml</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fully Managed Web Apps</strong></td>
+                    <td><code>Elastic Beanstalk</code></td>
+                    <td><code>Azure App Service</code></td>
+                    <td>PaaS environment. Deploy code directly using code commands like <code>az webapp up</code>. Zero OS patching overhead.</td>
+                </tr>
+                <tr>
+                    <td><strong>Object Storage</strong></td>
+                    <td><code>S3</code></td>
+                    <td><code>Azure Blob Storage</code></td>
+                    <td>Store text/image files at scale. Excellent for storing remote backend state files for Terraform tasks.</td>
+                </tr>
+                <tr>
+                    <td><strong>Relational Database</strong></td>
+                    <td><code>RDS</code></td>
+                    <td><code>Azure DB for PostgreSQL/MySQL Flex</code></td>
+                    <td>Fully managed relational engine with built-in automated backups and standby replicas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Serverless Functions</strong></td>
+                    <td><code>Lambda</code></td>
+                    <td><code>Azure Functions</code></td>
+                    <td>Event-driven FaaS execution engine. Triggers on a schedule (cron) or when image blobs land in a container.</td>
+                </tr>
+                <tr>
+                    <td><strong>Secrets Management</strong></td>
+                    <td><code>Secrets Manager + KMS</code></td>
+                    <td><code>Azure Key Vault</code></td>
+                    <td>Secure store for connection tokens. Read at runtime via Managed Identity. Zero plaintext passwords in code.</td>
+                </tr>
+                <tr>
+                    <td><strong>Observability Logs</strong></td>
+                    <td><code>CloudWatch + X-Ray</code></td>
+                    <td><code>Azure Monitor + App Insights</code></td>
+                    <td>APM tracking latencies and failure distributions. Query logs using KQL (Kusto Query Language).</td>
+                </tr>
+                <tr>
+                    <td><strong>CI/CD Deploy Pipelines</strong></td>
+                    <td><code>CodePipeline / Actions</code></td>
+                    <td><code>Azure DevOps / GitHub Actions</code></td>
+                    <td>Automated build loops. Swap AWS deploy CLI commands for <code>az aks update</code> statements within standard YAML paths.</td>
                 </tr>
             </tbody>
         </table>
@@ -1631,7 +1854,6 @@
         </table>
     </div>
 
-    <!-- ==================== NEW DOCKER COMPOSE SECTION ==================== -->
     <div id='docker-compose' class='section searchable-section'>
         <h2>🐙 Multi-Container Orchestration with Docker Compose</h2>
         <p style='color: #94a3b8; margin-bottom: 15px;'>Docker Compose abstracts individual container CLI arguments into a single declarative text file configuration blueprint.</p>
